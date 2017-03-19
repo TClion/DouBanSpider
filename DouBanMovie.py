@@ -26,7 +26,7 @@ class DouBan():
         self.Url = "https://movie.douban.com/tag/"      #豆瓣电影分类
         self.L = []                 #去重列表
         self.N = 0                  #计数器
-        self.db = pymysql.connect('localhost','root','topcoder','doubanmovie',charset='utf8')  #连接数据库
+        self.db = pymysql.connect('localhost','root','password','doubanmovie',charset='utf8')  #连接数据库
         self.cursor = self.db.cursor()
         self.db.autocommit(True)
         manager = multiprocessing.Manager()     #创建队列
@@ -46,7 +46,7 @@ class DouBan():
 
     #抓取电影信息url
     def GetMovie(self,key,url):
-        for i in range(0,40,20):       #制作分页url
+        for i in range(0,20,20):       #制作分页url
             Url =url + '?start='+str(i)+'&type=T'
             Moviehtml = requests.get(Url,headers=moviehead).text
             movielist = etree.HTML(Moviehtml)
