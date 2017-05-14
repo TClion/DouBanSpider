@@ -29,7 +29,7 @@ class DouBanBook():
         self.S = requests.Session()
         self.N = 0          #计数器
         self.L = []         #去重列表
-        self.db = pymysql.connect('localhost','root','topcoder','doubanbook',charset='utf8') #连接数据库
+        self.db = pymysql.connect('localhost','root','password','doubanbook',charset='utf8') #连接数据库
         self.cursor = self.db.cursor()
         self.db.autocommit(True)
         manager = multiprocessing.Manager() #创建队列
