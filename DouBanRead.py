@@ -49,7 +49,8 @@ class spider():
             }
             ip_lst.append(ip_dict)
         return ip_lst
-
+    
+    #目录链接
     def parse_item_lst(self):
         content = requests.get(self.Url).content
         data = etree.HTML(content)
